@@ -30,7 +30,7 @@ const doughnutValues = [
   props.platformStats.tiktok.adRevenue,
   props.platformStats.youtube.adRevenue
 ]
-const doughnutColors = ['#FF6F91', '#231942', '#D65DB1']
+const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
 </script>
 
 <template>
@@ -39,7 +39,7 @@ const doughnutColors = ['#FF6F91', '#231942', '#D65DB1']
 
     <v-container class="section-inner" style="max-width: 1200px;">
       <div class="reveal">
-        <div class="eyebrow" style="color: #b7791f;">Chapter 03 · {{ scopeLabel }}</div>
+        <div class="eyebrow" style="color: #0a0a0a;">Chapter 03 · {{ scopeLabel }}</div>
       </div>
 
       <div class="reveal" style="transition-delay: 100ms;">
@@ -136,7 +136,7 @@ const doughnutColors = ['#FF6F91', '#231942', '#D65DB1']
                 :labels="monthLabels"
                 :values="monthlyRevenue"
                 label="Revenue"
-                color="#FFC75F"
+                color="#FF6B1A"
               />
             </v-card>
           </div>

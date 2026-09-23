@@ -64,23 +64,24 @@ function select(v: MonthSelection) {
   gap: 10px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ff6f91, #845ec2);
+  background: linear-gradient(90deg, #ff2d87, #b026ff);
   color: white;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.85rem;
   letter-spacing: 0.02em;
-  border: none;
+  border: 2px solid #0a0a0a;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(132, 94, 194, 0.28);
+  box-shadow: 4px 4px 0 #0a0a0a;
   transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
 }
 .month-trigger:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(132, 94, 194, 0.36);
-  filter: brightness(1.03);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #0a0a0a;
+  filter: brightness(1.05);
 }
 .month-trigger.is-open {
-  transform: translateY(0);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #0a0a0a;
   filter: brightness(0.98);
 }
 .trigger-label {
@@ -96,12 +97,12 @@ function select(v: MonthSelection) {
 }
 
 .month-menu {
-  background: rgba(255, 248, 241, 0.96) !important;
+  background: rgba(244, 236, 220, 0.98) !important;
   backdrop-filter: blur(14px) saturate(1.4);
   -webkit-backdrop-filter: blur(14px) saturate(1.4);
   border-radius: 14px !important;
-  border: 1px solid rgba(35, 25, 66, 0.08);
-  box-shadow: 0 18px 40px rgba(35, 25, 66, 0.14) !important;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
   padding: 6px !important;
   min-width: 180px;
   max-height: 60vh;
@@ -114,15 +115,15 @@ function select(v: MonthSelection) {
   margin-right: 4px;
 }
 .menu-title {
-  font-weight: 600;
-  color: #231942;
+  font-weight: 700;
+  color: #0a0a0a;
   font-size: 0.9rem;
 }
 .menu-item-active {
-  background: linear-gradient(90deg, rgba(255, 111, 145, 0.16), rgba(132, 94, 194, 0.16)) !important;
+  background: linear-gradient(90deg, rgba(255, 45, 135, 0.2), rgba(176, 38, 255, 0.2)) !important;
 }
 .menu-item-active :deep(.menu-title) {
-  color: #845ec2;
-  font-weight: 800;
+  color: #b026ff;
+  font-weight: 900;
 }
 </style>

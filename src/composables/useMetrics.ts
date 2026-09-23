@@ -137,7 +137,7 @@ export function formatCurrency(n: number): string {
 }
 
 export const PLATFORM_META: Record<PlatformKey, { name: string; icon: string; color: string; emoji: string }> = {
-  instagram: { name: 'Instagram', icon: 'mdi-instagram', color: '#FF6F91', emoji: '📸' },
-  tiktok:    { name: 'TikTok',    icon: 'mdi-music-note', color: '#231942', emoji: '🎵' },
-  youtube:   { name: 'YouTube',   icon: 'mdi-youtube',    color: '#D65DB1', emoji: '📺' }
+  instagram: { name: 'Instagram', icon: 'mdi-instagram', color: '#FF2D87', emoji: '📸' },
+  tiktok:    { name: 'TikTok',    icon: 'mdi-music-note', color: '#0A0A0A', emoji: '🎵' },
+  youtube:   { name: 'YouTube',   icon: 'mdi-youtube',    color: '#FF3D3D', emoji: '📺' }
 }

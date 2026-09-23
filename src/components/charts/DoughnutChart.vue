@@ -15,7 +15,7 @@ const chartData: ChartData<'doughnut'> = {
     {
       data: props.values,
       backgroundColor: props.colors,
-      borderColor: '#FFF8F1',
+      borderColor: '#F4ECDC',
       borderWidth: 4,
       hoverOffset: 8
     }
@@ -36,7 +36,7 @@ const options: ChartOptions<'doughnut'> = {
       }
     },
     tooltip: {
-      backgroundColor: '#231942',
+      backgroundColor: '#0a0a0a',
       padding: 10,
       cornerRadius: 12,
       callbacks: {

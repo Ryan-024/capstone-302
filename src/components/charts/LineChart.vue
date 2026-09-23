@@ -10,7 +10,7 @@ const props = defineProps<{
   color?: string
 }>()
 
-const color = props.color ?? '#845EC2'
+const color = props.color ?? '#B026FF'
 
 const chartData: ChartData<'line'> = {
   labels: props.labels,
@@ -37,7 +37,7 @@ const options: ChartOptions<'line'> = {
   plugins: {
     legend: { display: false },
     tooltip: {
-      backgroundColor: '#231942',
+      backgroundColor: '#0a0a0a',
       padding: 10,
       cornerRadius: 12
     }
@@ -45,7 +45,7 @@ const options: ChartOptions<'line'> = {
   scales: {
     x: { grid: { display: false } },
     y: {
-      grid: { color: 'rgba(35, 25, 66, 0.06)' },
+      grid: { color: 'rgba(10, 10, 10, 0.06)' },
       ticks: {
         callback: (v) => {
           const n = Number(v)

@@ -24,13 +24,13 @@ const emojis = [
 
 <template>
   <section class="section section--hero">
-    <div class="hero-blob" style="width: 500px; height: 500px; background: #ff6f91; top: -100px; left: -100px;" />
-    <div class="hero-blob" style="width: 400px; height: 400px; background: #ffc75f; bottom: -80px; right: -80px;" />
+    <div class="hero-blob" style="width: 500px; height: 500px; background: #ff2d87; top: -100px; left: -100px;" />
+    <div class="hero-blob" style="width: 400px; height: 400px; background: #ffe600; bottom: -80px; right: -80px;" />
     <FloatyEmojis :emojis="emojis" />
 
     <v-container class="section-inner" style="max-width: 1200px;">
       <div class="reveal">
-        <div class="eyebrow" style="color: #d65db1;">{{ scopeLabel }} · Content Buddy Wrapped</div>
+        <div class="eyebrow" style="color: #0a0a0a;">{{ scopeLabel }} · Content Buddy Wrapped</div>
       </div>
 
       <div class="reveal" style="transition-delay: 100ms; margin-top: 1rem;">

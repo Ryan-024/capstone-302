@@ -1,0 +1,597 @@
+{
+  "creator": {
+    "name": "Content Buddy",
+    "handle": "@contentbuddy",
+    "startingSubscribers": 148200,
+    "endingSubscribers": 172450
+  },
+  "months": [
+    {
+      "month": "January",
+      "monthIndex": 1,
+      "subscribers": {
+        "total": 149350,
+        "gained": 1420,
+        "lost": 270,
+        "net": 1150
+      },
+      "platforms": {
+        "instagram": {
+          "views": 612340,
+          "comments": 8420,
+          "shares": 5210,
+          "adRevenue": 1840.55
+        },
+        "tiktok": {
+          "views": 1284500,
+          "comments": 14320,
+          "shares": 22150,
+          "adRevenue": 1620.75
+        },
+        "youtube": {
+          "views": 342100,
+          "comments": 3210,
+          "shares": 1450,
+          "adRevenue": 2410.3
+        }
+      },
+      "topPost": {
+        "title": "New Year, New Setup Tour",
+        "platform": "youtube",
+        "views": 128400,
+        "revenue": 612.4
+      },
+      "engagement": {
+        "topCommenter": "@sunny_pixels",
+        "topSong": {
+          "title": "Golden Hour",
+          "artist": "JVKE",
+          "uses": 6
+        }
+      }
+    },
+    {
+      "month": "February",
+      "monthIndex": 2,
+      "subscribers": {
+        "total": 150210,
+        "gained": 1180,
+        "lost": 320,
+        "net": 860
+      },
+      "platforms": {
+        "instagram": {
+          "views": 578220,
+          "comments": 7910,
+          "shares": 4820,
+          "adRevenue": 1735.4
+        },
+        "tiktok": {
+          "views": 1198400,
+          "comments": 13540,
+          "shares": 20180,
+          "adRevenue": 1512.6
+        },
+        "youtube": {
+          "views": 318700,
+          "comments": 2980,
+          "shares": 1310,
+          "adRevenue": 2245.8
+        }
+      },
+      "topPost": {
+        "title": "Valentine's Day Cafe Vlog",
+        "platform": "instagram",
+        "views": 214300,
+        "revenue": 485.9
+      },
+      "engagement": {
+        "topCommenter": "@latte.liv",
+        "topSong": {
+          "title": "Lover",
+          "artist": "Taylor Swift",
+          "uses": 5
+        }
+      }
+    },
+    {
+      "month": "March",
+      "monthIndex": 3,
+      "subscribers": {
+        "total": 152080,
+        "gained": 2210,
+        "lost": 340,
+        "net": 1870
+      },
+      "platforms": {
+        "instagram": {
+          "views": 684500,
+          "comments": 9250,
+          "shares": 5810,
+          "adRevenue": 2050.15
+        },
+        "tiktok": {
+          "views": 1524600,
+          "comments": 16820,
+          "shares": 25940,
+          "adRevenue": 1934.7
+        },
+        "youtube": {
+          "views": 402100,
+          "comments": 3720,
+          "shares": 1710,
+          "adRevenue": 2812.35
+        }
+      },
+      "topPost": {
+        "title": "Spring Cleaning My Camera Roll",
+        "platform": "tiktok",
+        "views": 342800,
+        "revenue": 528.75
+      },
+      "engagement": {
+        "topCommenter": "@mossy.maple",
+        "topSong": {
+          "title": "greedy",
+          "artist": "Tate McRae",
+          "uses": 8
+        }
+      }
+    },
+    {
+      "month": "April",
+      "monthIndex": 4,
+      "subscribers": {
+        "total": 151640,
+        "gained": 960,
+        "lost": 1400,
+        "net": -440
+      },
+      "platforms": {
+        "instagram": {
+          "views": 542180,
+          "comments": 7420,
+          "shares": 4510,
+          "adRevenue": 1625.9
+        },
+        "tiktok": {
+          "views": 1102400,
+          "comments": 12280,
+          "shares": 18540,
+          "adRevenue": 1389.4
+        },
+        "youtube": {
+          "views": 295800,
+          "comments": 2740,
+          "shares": 1180,
+          "adRevenue": 2071.2
+        }
+      },
+      "topPost": {
+        "title": "Why I Took A Week Off Social Media",
+        "platform": "youtube",
+        "views": 98600,
+        "revenue": 421.8
+      },
+      "engagement": {
+        "topCommenter": "@willow.reads",
+        "topSong": {
+          "title": "Espresso",
+          "artist": "Sabrina Carpenter",
+          "uses": 4
+        }
+      }
+    },
+    {
+      "month": "May",
+      "monthIndex": 5,
+      "subscribers": {
+        "total": 154820,
+        "gained": 3520,
+        "lost": 340,
+        "net": 3180
+      },
+      "platforms": {
+        "instagram": {
+          "views": 748900,
+          "comments": 10420,
+          "shares": 6890,
+          "adRevenue": 2245.7
+        },
+        "tiktok": {
+          "views": 1842300,
+          "comments": 19850,
+          "shares": 31240,
+          "adRevenue": 2325.2
+        },
+        "youtube": {
+          "views": 452800,
+          "comments": 4180,
+          "shares": 1920,
+          "adRevenue": 3168.15
+        }
+      },
+      "topPost": {
+        "title": "48 Hours in Lisbon",
+        "platform": "tiktok",
+        "views": 512400,
+        "revenue": 812.6
+      },
+      "engagement": {
+        "topCommenter": "@mossy.maple",
+        "topSong": {
+          "title": "Please Please Please",
+          "artist": "Sabrina Carpenter",
+          "uses": 9
+        }
+      }
+    },
+    {
+      "month": "June",
+      "monthIndex": 6,
+      "subscribers": {
+        "total": 157950,
+        "gained": 3410,
+        "lost": 280,
+        "net": 3130
+      },
+      "platforms": {
+        "instagram": {
+          "views": 812400,
+          "comments": 11340,
+          "shares": 7420,
+          "adRevenue": 2432.85
+        },
+        "tiktok": {
+          "views": 2018600,
+          "comments": 21540,
+          "shares": 34120,
+          "adRevenue": 2548.4
+        },
+        "youtube": {
+          "views": 498200,
+          "comments": 4520,
+          "shares": 2110,
+          "adRevenue": 3487.15
+        }
+      },
+      "topPost": {
+        "title": "Summer Morning Routine 2025",
+        "platform": "instagram",
+        "views": 328400,
+        "revenue": 748.9
+      },
+      "engagement": {
+        "topCommenter": "@sunny_pixels",
+        "topSong": {
+          "title": "A Bar Song (Tipsy)",
+          "artist": "Shaboozey",
+          "uses": 7
+        }
+      }
+    },
+    {
+      "month": "July",
+      "monthIndex": 7,
+      "subscribers": {
+        "total": 160980,
+        "gained": 3260,
+        "lost": 230,
+        "net": 3030
+      },
+      "platforms": {
+        "instagram": {
+          "views": 894200,
+          "comments": 12450,
+          "shares": 8210,
+          "adRevenue": 2680.6
+        },
+        "tiktok": {
+          "views": 2245800,
+          "comments": 23840,
+          "shares": 37450,
+          "adRevenue": 2834.2
+        },
+        "youtube": {
+          "views": 541200,
+          "comments": 4980,
+          "shares": 2340,
+          "adRevenue": 3788.4
+        }
+      },
+      "topPost": {
+        "title": "I Tried Every Viral Coffee Trend",
+        "platform": "youtube",
+        "views": 184500,
+        "revenue": 892.15
+      },
+      "engagement": {
+        "topCommenter": "@latte.liv",
+        "topSong": {
+          "title": "Good Luck, Babe!",
+          "artist": "Chappell Roan",
+          "uses": 11
+        }
+      }
+    },
+    {
+      "month": "August",
+      "monthIndex": 8,
+      "subscribers": {
+        "total": 162340,
+        "gained": 1780,
+        "lost": 420,
+        "net": 1360
+      },
+      "platforms": {
+        "instagram": {
+          "views": 758400,
+          "comments": 10680,
+          "shares": 7020,
+          "adRevenue": 2274.5
+        },
+        "tiktok": {
+          "views": 1948200,
+          "comments": 20340,
+          "shares": 32180,
+          "adRevenue": 2458.9
+        },
+        "youtube": {
+          "views": 478600,
+          "comments": 4380,
+          "shares": 2050,
+          "adRevenue": 3352.4
+        }
+      },
+      "topPost": {
+        "title": "End of Summer Reset Day",
+        "platform": "instagram",
+        "views": 268400,
+        "revenue": 612.3
+      },
+      "engagement": {
+        "topCommenter": "@willow.reads",
+        "topSong": {
+          "title": "Birds of a Feather",
+          "artist": "Billie Eilish",
+          "uses": 8
+        }
+      }
+    },
+    {
+      "month": "September",
+      "monthIndex": 9,
+      "subscribers": {
+        "total": 165120,
+        "gained": 3120,
+        "lost": 340,
+        "net": 2780
+      },
+      "platforms": {
+        "instagram": {
+          "views": 824600,
+          "comments": 11540,
+          "shares": 7580,
+          "adRevenue": 2473.8
+        },
+        "tiktok": {
+          "views": 2124800,
+          "comments": 22450,
+          "shares": 35480,
+          "adRevenue": 2682.4
+        },
+        "youtube": {
+          "views": 512400,
+          "comments": 4720,
+          "shares": 2210,
+          "adRevenue": 3586.8
+        }
+      },
+      "topPost": {
+        "title": "My Fall Content Planning System",
+        "platform": "youtube",
+        "views": 162800,
+        "revenue": 785.4
+      },
+      "engagement": {
+        "topCommenter": "@mossy.maple",
+        "topSong": {
+          "title": "Taste",
+          "artist": "Sabrina Carpenter",
+          "uses": 9
+        }
+      }
+    },
+    {
+      "month": "October",
+      "monthIndex": 10,
+      "subscribers": {
+        "total": 167840,
+        "gained": 3050,
+        "lost": 330,
+        "net": 2720
+      },
+      "platforms": {
+        "instagram": {
+          "views": 862400,
+          "comments": 12180,
+          "shares": 7920,
+          "adRevenue": 2586.2
+        },
+        "tiktok": {
+          "views": 2298400,
+          "comments": 24120,
+          "shares": 38240,
+          "adRevenue": 2902.5
+        },
+        "youtube": {
+          "views": 548200,
+          "comments": 5040,
+          "shares": 2380,
+          "adRevenue": 3838.6
+        }
+      },
+      "topPost": {
+        "title": "Cozy Autumn Studio Reset",
+        "platform": "tiktok",
+        "views": 612400,
+        "revenue": 1024.7
+      },
+      "engagement": {
+        "topCommenter": "@sunny_pixels",
+        "topSong": {
+          "title": "Die With A Smile",
+          "artist": "Lady Gaga & Bruno Mars",
+          "uses": 10
+        }
+      }
+    },
+    {
+      "month": "November",
+      "monthIndex": 11,
+      "subscribers": {
+        "total": 170280,
+        "gained": 2820,
+        "lost": 380,
+        "net": 2440
+      },
+      "platforms": {
+        "instagram": {
+          "views": 912400,
+          "comments": 12820,
+          "shares": 8420,
+          "adRevenue": 2736.8
+        },
+        "tiktok": {
+          "views": 2412600,
+          "comments": 25640,
+          "shares": 40180,
+          "adRevenue": 3048.2
+        },
+        "youtube": {
+          "views": 582400,
+          "comments": 5320,
+          "shares": 2510,
+          "adRevenue": 4076.4
+        }
+      },
+      "topPost": {
+        "title": "Black Friday Creator Deals I Actually Use",
+        "platform": "youtube",
+        "views": 214800,
+        "revenue": 1145.9
+      },
+      "engagement": {
+        "topCommenter": "@latte.liv",
+        "topSong": {
+          "title": "Apt.",
+          "artist": "ROSÉ & Bruno Mars",
+          "uses": 12
+        }
+      }
+    },
+    {
+      "month": "December",
+      "monthIndex": 12,
+      "subscribers": {
+        "total": 172450,
+        "gained": 2480,
+        "lost": 310,
+        "net": 2170
+      },
+      "platforms": {
+        "instagram": {
+          "views": 984200,
+          "comments": 13840,
+          "shares": 9120,
+          "adRevenue": 2952.6
+        },
+        "tiktok": {
+          "views": 2584200,
+          "comments": 27480,
+          "shares": 43120,
+          "adRevenue": 3264.8
+        },
+        "youtube": {
+          "views": 624800,
+          "comments": 5720,
+          "shares": 2680,
+          "adRevenue": 4373.6
+        }
+      },
+      "topPost": {
+        "title": "My 2025 Year in Review",
+        "platform": "tiktok",
+        "views": 842400,
+        "revenue": 1382.5
+      },
+      "engagement": {
+        "topCommenter": "@sunny_pixels",
+        "topSong": {
+          "title": "All I Want for Christmas Is You",
+          "artist": "Mariah Carey",
+          "uses": 14
+        }
+      }
+    }
+  ],
+  "yearSummary": {
+    "totalViews": {
+      "instagram": 9214760,
+      "tiktok": 22684800,
+      "youtube": 5597300,
+      "combined": 37496860
+    },
+    "totalComments": {
+      "instagram": 128290,
+      "tiktok": 242220,
+      "youtube": 51510,
+      "combined": 422020
+    },
+    "totalShares": {
+      "instagram": 82950,
+      "tiktok": 378860,
+      "youtube": 23850,
+      "combined": 485660
+    },
+    "totalAdRevenue": {
+      "instagram": 27735.05,
+      "tiktok": 28620.15,
+      "youtube": 39211.15,
+      "combined": 95566.35
+    },
+    "subscriberGrowth": {
+      "start": 148200,
+      "end": 172450,
+      "net": 24250,
+      "percent": 16.36
+    },
+    "topPlatform": "tiktok",
+    "topPostOfYear": {
+      "title": "My 2025 Year in Review",
+      "platform": "tiktok",
+      "month": "December",
+      "views": 842400,
+      "revenue": 1382.5
+    },
+    "topSongOfYear": {
+      "title": "Apt.",
+      "artist": "ROSÉ & Bruno Mars",
+      "uses": 12,
+      "month": "November"
+    },
+    "topCommenterOfYear": {
+      "handle": "@sunny_pixels",
+      "totalComments": 428,
+      "totalLikes": 12480
+    },
+    "topCommentOfYear": {
+      "handle": "@sunny_pixels",
+      "text": "okay but the way you edited this literally made my whole week 😭✨",
+      "postTitle": "My 2025 Year in Review",
+      "platform": "tiktok",
+      "likes": 8420,
+      "replies": 312
+    }
+  }
+}

@@ -32,7 +32,7 @@ const emojis = [
 
     <v-container class="section-inner" style="max-width: 1200px;">
       <div class="reveal">
-        <div class="eyebrow" style="color: #845ec2;">Chapter 01 · {{ scopeLabel }}</div>
+        <div class="eyebrow" style="color: #5003c0;">Chapter 01 · {{ scopeLabel }}</div>
       </div>
 
       <div class="reveal" style="transition-delay: 100ms;">

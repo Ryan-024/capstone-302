@@ -41,8 +41,8 @@ defineEmits<{
 .app-bar-glass {
   backdrop-filter: saturate(1.4) blur(14px);
   -webkit-backdrop-filter: saturate(1.4) blur(14px);
-  background: rgba(255, 248, 241, 0.72) !important;
-  border-bottom: 1px solid rgba(35, 25, 66, 0.06);
+  background: rgba(255, 251, 242, 0.72) !important;
+  border-bottom: 1px solid rgba(27, 1, 64, 0.06);
 }
 .brand {
   display: flex;
@@ -57,7 +57,7 @@ defineEmits<{
   font-weight: 800;
   font-size: 1.15rem;
   line-height: 1;
-  color: #231942;
+  color: #1b0140;
 }
 .brand-sub {
   font-size: 0.72rem;

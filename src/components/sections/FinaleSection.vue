@@ -28,7 +28,7 @@ const emojis = [
 
     <v-container class="section-inner" style="max-width: 1000px; text-align: center;">
       <div class="reveal">
-        <div class="eyebrow" style="color: #2f9e75;">Chapter 04 · The Finale</div>
+        <div class="eyebrow" style="color: #5003c0;">Chapter 04 · The Finale</div>
       </div>
 
       <div class="reveal" style="transition-delay: 100ms;">
@@ -62,7 +62,7 @@ const emojis = [
             :labels="monthLabels"
             :values="monthlyFollowers"
             label="Followers"
-            color="#3DBE95"
+            color="#AB03A9"
           />
         </v-card>
       </div>

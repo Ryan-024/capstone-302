@@ -23,9 +23,9 @@ const emojis = [
 ]
 
 const barDatasets = [
-  { label: 'Instagram', values: props.monthlyViews.instagram, color: '#FF6F91' },
-  { label: 'TikTok',    values: props.monthlyViews.tiktok,    color: '#231942' },
-  { label: 'YouTube',   values: props.monthlyViews.youtube,   color: '#D65DB1' }
+  { label: 'Instagram', values: props.monthlyViews.instagram, color: '#FF467A' },
+  { label: 'TikTok',    values: props.monthlyViews.tiktok,    color: '#5003C0' },
+  { label: 'YouTube',   values: props.monthlyViews.youtube,   color: '#AB03A9' }
 ]
 </script>
 
@@ -35,7 +35,7 @@ const barDatasets = [
 
     <v-container class="section-inner" style="max-width: 1200px;">
       <div class="reveal">
-        <div class="eyebrow" style="color: #4d96ff;">Chapter 02 · {{ scopeLabel }}</div>
+        <div class="eyebrow" style="color: #ab03a9;">Chapter 02 · {{ scopeLabel }}</div>
       </div>
 
       <div class="reveal" style="transition-delay: 100ms;">
@@ -128,9 +128,9 @@ const barDatasets = [
   border: 2px solid transparent;
 }
 .platform-card.is-top {
-  background: linear-gradient(135deg, #fff, #fff5f8);
-  border-color: #ff6f91;
-  box-shadow: 0 20px 40px -20px rgba(255, 111, 145, 0.4) !important;
+  background: linear-gradient(135deg, #fff, #fff2f7);
+  border-color: #ff467a;
+  box-shadow: 0 20px 40px -20px rgba(255, 70, 122, 0.4) !important;
 }
 .platform-header {
   display: flex;
@@ -150,7 +150,7 @@ const barDatasets = [
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #d65db1;
+  color: #ab03a9;
   font-weight: 700;
   margin-top: 2px;
 }
@@ -164,7 +164,7 @@ const barDatasets = [
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 1;
-  color: #231942;
+  color: #1b0140;
 }
 .metric-lbl {
   margin-top: 0.25rem;

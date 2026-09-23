@@ -36,7 +36,7 @@ const options: ChartOptions<'bar'> = {
       }
     },
     tooltip: {
-      backgroundColor: '#231942',
+      backgroundColor: '#1B0140',
       padding: 10,
       cornerRadius: 12
     }
@@ -48,7 +48,7 @@ const options: ChartOptions<'bar'> = {
     },
     y: {
       stacked: props.stacked ?? false,
-      grid: { color: 'rgba(35, 25, 66, 0.06)' },
+      grid: { color: 'rgba(27, 1, 64, 0.06)' },
       ticks: {
         callback: (v) => {
           const n = Number(v)

@@ -26,5 +26,5 @@ ChartJS.register(
 )
 
 ChartJS.defaults.font.family = "'Inter', -apple-system, sans-serif"
-ChartJS.defaults.color = '#231942'
-ChartJS.defaults.borderColor = 'rgba(35, 25, 66, 0.08)'
+ChartJS.defaults.color = '#1B0140'
+ChartJS.defaults.borderColor = 'rgba(27, 1, 64, 0.08)'

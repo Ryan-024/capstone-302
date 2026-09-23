@@ -29,11 +29,13 @@ defineEmits<{
 
     <v-spacer />
 
-    <MonthToggle
-      :model-value="modelValue"
-      :months="months"
-      @update:model-value="$emit('update:modelValue', $event)"
-    />
+    <div class="toggle-wrap">
+      <MonthToggle
+        :model-value="modelValue"
+        :months="months"
+        @update:model-value="$emit('update:modelValue', $event)"
+      />
+    </div>
   </v-app-bar>
 </template>
 
@@ -64,5 +66,8 @@ defineEmits<{
   opacity: 0.65;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+.toggle-wrap {
+  padding-right: 20px;
 }
 </style>

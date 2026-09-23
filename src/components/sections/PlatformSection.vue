@@ -1,0 +1,191 @@
+<script setup lang="ts">
+import FloatyEmojis from '../FloatyEmojis.vue'
+import BarChart from '../charts/BarChart.vue'
+import { formatNumber, formatCurrency, PLATFORM_META } from '../../composables/useMetrics'
+import type { PlatformStats, PlatformKey } from '../../types'
+
+const props = defineProps<{
+  platformStats: { instagram: PlatformStats; tiktok: PlatformStats; youtube: PlatformStats }
+  topPlatform: PlatformKey
+  monthLabels: string[]
+  monthlyViews: { instagram: number[]; tiktok: number[]; youtube: number[] }
+  scopeLabel: string
+  isYear: boolean
+}>()
+
+const platformOrder: PlatformKey[] = ['instagram', 'tiktok', 'youtube']
+
+const emojis = [
+  { char: '📸', top: '14%', left: '5%', speed: 0.22, rot: -8 },
+  { char: '🎬', top: '20%', left: '86%', speed: 0.18, rot: 10 },
+  { char: '📱', top: '72%', left: '10%', speed: 0.16, rot: 4 },
+  { char: '💫', top: '80%', left: '82%', speed: 0.24, rot: -14 }
+]
+
+const barDatasets = [
+  { label: 'Instagram', values: props.monthlyViews.instagram, color: '#FF6F91' },
+  { label: 'TikTok',    values: props.monthlyViews.tiktok,    color: '#231942' },
+  { label: 'YouTube',   values: props.monthlyViews.youtube,   color: '#D65DB1' }
+]
+</script>
+
+<template>
+  <section class="section section--platform">
+    <FloatyEmojis :emojis="emojis" />
+
+    <v-container class="section-inner" style="max-width: 1200px;">
+      <div class="reveal">
+        <div class="eyebrow" style="color: #4d96ff;">Chapter 02 · {{ scopeLabel }}</div>
+      </div>
+
+      <div class="reveal" style="transition-delay: 100ms;">
+        <h2 class="display-large">
+          Your <span class="gradient-text-blue">main stage</span> was
+          <span class="gradient-text-pink">
+            {{ PLATFORM_META[topPlatform].emoji }} {{ PLATFORM_META[topPlatform].name }}
+          </span>
+        </h2>
+        <p class="section-lede">
+          You showed up everywhere, but this platform truly hit different.
+          Here's how each channel showed up for you.
+        </p>
+      </div>
+
+      <v-row class="mt-8" dense>
+        <v-col
+          v-for="platform in platformOrder"
+          :key="platform"
+          cols="12"
+          md="4"
+        >
+          <div class="reveal" :style="`transition-delay: ${150 + platformOrder.indexOf(platform) * 150}ms;`">
+            <v-card
+              class="platform-card card-lift"
+              elevation="4"
+              :class="{ 'is-top': platform === topPlatform }"
+            >
+              <div class="platform-header">
+                <div class="platform-emoji">{{ PLATFORM_META[platform].emoji }}</div>
+                <div>
+                  <div class="platform-name">{{ PLATFORM_META[platform].name }}</div>
+                  <div v-if="platform === topPlatform" class="platform-crown">👑 top platform</div>
+                </div>
+              </div>
+
+              <div class="metric-grid">
+                <div class="metric">
+                  <div class="metric-val">{{ formatNumber(platformStats[platform].views) }}</div>
+                  <div class="metric-lbl">views</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-val">{{ formatNumber(platformStats[platform].comments) }}</div>
+                  <div class="metric-lbl">comments</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-val">{{ formatNumber(platformStats[platform].shares) }}</div>
+                  <div class="metric-lbl">shares</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-val">{{ formatCurrency(platformStats[platform].adRevenue) }}</div>
+                  <div class="metric-lbl">ad revenue</div>
+                </div>
+              </div>
+            </v-card>
+          </div>
+        </v-col>
+      </v-row>
+
+      <div v-if="isYear" class="reveal mt-10" style="transition-delay: 700ms;">
+        <v-card class="chart-card" elevation="2">
+          <div class="chart-title">Monthly views across platforms</div>
+          <div class="chart-sub">A little bit of every month, side by side</div>
+          <BarChart
+            :labels="monthLabels"
+            :datasets="barDatasets"
+          />
+        </v-card>
+      </div>
+    </v-container>
+  </section>
+</template>
+
+<style scoped>
+.section-lede {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 640px;
+  opacity: 0.8;
+}
+.platform-card {
+  padding: 2rem;
+  border-radius: 24px !important;
+  background: white;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 2px solid transparent;
+}
+.platform-card.is-top {
+  background: linear-gradient(135deg, #fff, #fff5f8);
+  border-color: #ff6f91;
+  box-shadow: 0 20px 40px -20px rgba(255, 111, 145, 0.4) !important;
+}
+.platform-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.platform-emoji {
+  font-size: 2.6rem;
+  line-height: 1;
+}
+.platform-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.platform-crown {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #d65db1;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+.metric-val {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #231942;
+}
+.metric-lbl {
+  margin-top: 0.25rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.6;
+  font-weight: 600;
+}
+.chart-card {
+  padding: 2rem;
+  border-radius: 24px !important;
+  background: white;
+}
+.chart-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.chart-sub {
+  opacity: 0.65;
+  margin-bottom: 1rem;
+}
+</style>

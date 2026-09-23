@@ -1,0 +1,154 @@
+:root {
+  --ink: #231942;
+  --pink: #ff6f91;
+  --purple: #845ec2;
+  --gold: #ffc75f;
+  --blue: #4d96ff;
+  --green: #3dbe95;
+}
+
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #fff8f1;
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.serif {
+  font-family: 'Fraunces', Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.display-huge {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.display-large {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-weight: 600;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 0 8rem;
+  overflow: hidden;
+}
+
+.section--hero      { background: linear-gradient(180deg, #ffe8ec 0%, #ffd6df 100%); }
+.section--obsessed  { background: linear-gradient(180deg, #f3e8ff 0%, #ecdcff 100%); }
+.section--platform  { background: linear-gradient(180deg, #e8f1ff 0%, #d7e6ff 100%); }
+.section--revenue   { background: linear-gradient(180deg, #fff3d6 0%, #ffe4a8 100%); }
+.section--finale    { background: linear-gradient(180deg, #e8fbf3 0%, #d1f5e5 100%); }
+
+.section-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax floating emojis */
+.floaty {
+  position: absolute;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  opacity: 0.85;
+  pointer-events: none;
+  user-select: none;
+  transform: translateY(var(--parallax-y, 0px)) rotate(var(--rot, 0deg));
+  transition: transform 0.05s linear;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.08));
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stat-huge {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.card-lift {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+}
+
+.gradient-text-pink {
+  background: linear-gradient(90deg, #ff6f91, #845ec2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-text-gold {
+  background: linear-gradient(90deg, #ffc75f, #ff9671);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-text-blue {
+  background: linear-gradient(90deg, #4d96ff, #845ec2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-text-green {
+  background: linear-gradient(90deg, #3dbe95, #4d96ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.divider-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  margin: 0 0.6rem;
+  vertical-align: middle;
+  opacity: 0.4;
+}
+
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  z-index: 1;
+}

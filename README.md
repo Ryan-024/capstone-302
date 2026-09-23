@@ -16,7 +16,7 @@ Generate a fake dataset as a JSON file (src/datametrics.json).
     - TikTok (Views, Comments, Shares)
     - Youtube (Views, Comments, Shares)
 - Ad revenue trends
-    - (Show Top post and the revenue it brought in (make this number realist)
+    - Show Top post and the revenue it brought in (make this number realist)
 - Engagement Summary
     - (Top commenting account)
     - (Top Songs used in content)

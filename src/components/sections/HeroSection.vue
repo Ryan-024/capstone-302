@@ -24,8 +24,8 @@ const emojis = [
 
 <template>
   <section class="section section--hero">
-    <div class="hero-blob" style="width: 500px; height: 500px; background: #ff467a; top: -100px; left: -100px;" />
-    <div class="hero-blob" style="width: 400px; height: 400px; background: #ffd51e; bottom: -80px; right: -80px;" />
+    <div class="hero-blob" style="width: 500px; height: 500px; background: #ff467a; top: -100px; left: -100px;"></div>
+    <div class="hero-blob" style="width: 400px; height: 400px; background: #ffd51e; bottom: -80px; right: -80px;"></div>
     <FloatyEmojis :emojis="emojis" />
 
     <v-container class="section-inner" style="max-width: 1200px;">

@@ -74,6 +74,19 @@ const barChartTitle = computed(() =>
           class="reveal"
           :style="`transition-delay: ${150 + platformOrder.indexOf(platform) * 150}ms;`"
         >
+          <div
+            v-if="platform === topPlatform"
+            class="top-platform-pill"
+          >
+            👑 top platform
+          </div>
+          <div
+            v-else
+            class="top-platform-pill top-platform-pill--ghost"
+            aria-hidden="true"
+          >
+            👑 top platform
+          </div>
           <v-card
             class="platform-card card-lift"
             elevation="4"
@@ -104,8 +117,6 @@ const barChartTitle = computed(() =>
                 <div class="metric-lbl">ad revenue</div>
               </div>
             </div>
-
-            <div v-if="platform === topPlatform" class="platform-crown">👑 top platform</div>
           </v-card>
         </div>
       </div>
@@ -128,6 +139,16 @@ const barChartTitle = computed(() =>
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  align-items: stretch;
+}
+.card-grid > .reveal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.card-grid > .reveal > .platform-card {
+  width: 100%;
+  flex: 1;
 }
 .section-lede {
   margin-top: 1rem;
@@ -137,13 +158,12 @@ const barChartTitle = computed(() =>
   opacity: 0.8;
 }
 .platform-card {
-  padding: 2rem;
+  padding: 1.75rem;
   border-radius: 24px !important;
   background: #ffffff !important;
-  min-height: 340px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
   border: 2px solid #0a0a0a;
   box-shadow: 6px 6px 0 #0a0a0a !important;
 }
@@ -155,46 +175,49 @@ const barChartTitle = computed(() =>
 .platform-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 .platform-emoji {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   line-height: 1;
 }
 .platform-name {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
-.platform-crown {
-  margin-top: auto;
+.top-platform-pill {
   align-self: center;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: #b026ff;
   font-weight: 700;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border: 2px solid #0a0a0a;
   border-radius: 999px;
   background: #fff0f7;
   box-shadow: 3px 3px 0 #0a0a0a;
 }
+.top-platform-pill--ghost {
+  visibility: hidden;
+  pointer-events: none;
+}
 .metric-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem 1.5rem;
+  gap: 0.75rem 1rem;
 }
 .metric-val {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1;
   color: #0a0a0a;
 }
 .metric-lbl {
-  margin-top: 0.25rem;
-  font-size: 0.72rem;
+  margin-top: 0.2rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   opacity: 0.6;

@@ -119,7 +119,7 @@ html, body, #app {
   color: transparent;
 }
 .gradient-text-gold {
-  background: linear-gradient(90deg, #ff9a1a, #ff3d3d);
+  background: linear-gradient(90deg, #ff6b1a, #b026ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

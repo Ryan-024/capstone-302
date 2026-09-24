@@ -73,6 +73,7 @@ const emojis = [
 
 <style scoped>
 .section--hero {
+  min-height: 100vh;
   padding-top: 10rem;
   padding-bottom: 6rem;
 }

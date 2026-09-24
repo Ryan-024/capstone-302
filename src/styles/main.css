@@ -50,7 +50,6 @@ html, body, #app {
 
 .section {
   position: relative;
-  min-height: 100vh;
   padding: 8rem 0 8rem;
   overflow: hidden;
 }

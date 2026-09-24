@@ -139,7 +139,7 @@ const monthBarDatasets = computed(() => [
   font-family: 'Fraunces', serif;
   font-weight: 700;
   font-size: 1.4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 .signature {
   margin-top: 5rem;

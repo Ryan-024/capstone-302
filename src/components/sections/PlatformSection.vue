@@ -210,7 +210,8 @@ const barChartTitle = computed(() =>
 .chart-title {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
 }
 .chart-sub {
   opacity: 0.65;

@@ -134,7 +134,6 @@ const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
         <div class="reveal" style="transition-delay: 700ms;">
           <v-card class="chart-card" elevation="2">
             <div class="chart-title">Revenue mix</div>
-            <div class="chart-sub">Where your income came from</div>
             <DoughnutChart
               :labels="doughnutLabels"
               :values="doughnutValues"
@@ -147,9 +146,6 @@ const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
           <v-card class="chart-card" elevation="2">
             <div class="chart-title">
               {{ isYear ? 'Revenue over the year' : `Revenue by platform in ${scopeLabel}` }}
-            </div>
-            <div class="chart-sub">
-              {{ isYear ? 'You closed strong 💪' : 'Which channels paid this month' }}
             </div>
             <LineChart
               v-if="isYear"
@@ -192,15 +188,18 @@ const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
 }
 .chart-grid > div {
   display: flex;
+  min-width: 0;
 }
 .chart-grid > div > .chart-card {
   width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
 .chart-grid > div > .chart-card :deep(.chart-wrap) {
   flex: 1;
-  min-height: 300px;
+  min-height: 260px;
+  min-width: 0;
 }
 @media (min-width: 960px) {
   .chart-grid {
@@ -297,6 +296,7 @@ const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
   font-family: 'Fraunces', serif;
   font-weight: 700;
   font-size: 1.4rem;
+  margin-bottom: 1.25rem;
 }
 .chart-sub {
   opacity: 0.65;

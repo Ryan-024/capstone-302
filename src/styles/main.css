@@ -155,3 +155,47 @@ html, body, #app {
   opacity: 0.55;
   z-index: 1;
 }
+
+/* -------------------------------------------------------
+ * High-contrast mode (accessibility toggle in AppBar)
+ * Forces all text to pure black, disables gradient text
+ * fills, boosts opacity on de-emphasized labels.
+ * ----------------------------------------------------- */
+.high-contrast,
+.high-contrast *:not(.contrast-toggle):not(.contrast-toggle *) {
+  color: #000000 !important;
+}
+.high-contrast .contrast-toggle.is-active,
+.high-contrast .contrast-toggle.is-active * {
+  color: #ffffff !important;
+}
+.high-contrast .gradient-text-pink,
+.high-contrast .gradient-text-gold,
+.high-contrast .gradient-text-blue,
+.high-contrast .gradient-text-green {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+.high-contrast .eyebrow,
+.high-contrast .stat-label,
+.high-contrast .metric-lbl,
+.high-contrast .card-badge,
+.high-contrast .rev-badge,
+.high-contrast .rev-sub,
+.high-contrast .rev-artist,
+.high-contrast .chart-sub,
+.high-contrast .section-lede,
+.high-contrast .brand-sub,
+.high-contrast .sig-sub,
+.high-contrast .scroll-cue,
+.high-contrast .platform-crown,
+.high-contrast .artist,
+.high-contrast .divider-dot {
+  opacity: 1 !important;
+}
+.high-contrast .v-chip {
+  color: #000000 !important;
+}

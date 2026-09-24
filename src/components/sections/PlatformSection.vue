@@ -25,7 +25,7 @@ const emojis = [
 ]
 
 const barDatasets = [
-  { label: 'Instagram', values: props.monthlyViews.instagram, color: '#FF2D87' },
+  { label: 'Instagram', values: props.monthlyViews.instagram, color: '#00D1FF' },
   { label: 'TikTok',    values: props.monthlyViews.tiktok,    color: '#0A0A0A' },
   { label: 'YouTube',   values: props.monthlyViews.youtube,   color: '#FF3D3D' }
 ]

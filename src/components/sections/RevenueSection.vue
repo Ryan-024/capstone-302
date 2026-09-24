@@ -146,6 +146,19 @@ const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+  align-items: stretch;
+}
+.chart-grid > div {
+  display: flex;
+}
+.chart-grid > div > .chart-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.chart-grid > div > .chart-card :deep(.chart-wrap) {
+  flex: 1;
+  min-height: 300px;
 }
 @media (min-width: 960px) {
   .chart-grid {

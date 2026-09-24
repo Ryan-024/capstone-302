@@ -45,66 +45,60 @@ const emojis = [
         </p>
       </div>
 
-      <v-row class="mt-8" dense>
-        <v-col cols="12" md="4">
-          <div class="reveal" style="transition-delay: 150ms;">
-            <v-card class="obsession-card card-lift" elevation="4">
-              <div class="card-badge">Top content</div>
-              <div class="card-emoji">🏆</div>
-              <div class="card-title">{{ topPost.title }}</div>
-              <div class="card-meta">
-                <v-chip
-                  :color="PLATFORM_META[topPost.platform].color"
-                  variant="flat"
-                  size="small"
-                  class="text-white"
-                >
-                  {{ PLATFORM_META[topPost.platform].emoji }}
-                  {{ PLATFORM_META[topPost.platform].name }}
-                </v-chip>
-              </div>
-              <div class="card-stat">
-                <div class="stat-huge gradient-text-pink">{{ formatNumber(topPost.views) }}</div>
-                <div class="stat-label">views</div>
-              </div>
-            </v-card>
-          </div>
-        </v-col>
+      <div class="card-grid mt-8">
+        <div class="reveal" style="transition-delay: 150ms;">
+          <v-card class="obsession-card card-lift" elevation="4">
+            <div class="card-badge">Top content</div>
+            <div class="card-emoji">🏆</div>
+            <div class="card-title">{{ topPost.title }}</div>
+            <div class="card-meta">
+              <v-chip
+                :color="PLATFORM_META[topPost.platform].color"
+                variant="flat"
+                size="small"
+                class="text-white"
+              >
+                {{ PLATFORM_META[topPost.platform].emoji }}
+                {{ PLATFORM_META[topPost.platform].name }}
+              </v-chip>
+            </div>
+            <div class="card-stat">
+              <div class="stat-huge gradient-text-pink">{{ formatNumber(topPost.views) }}</div>
+              <div class="stat-label">views</div>
+            </div>
+          </v-card>
+        </div>
 
-        <v-col cols="12" md="4">
-          <div class="reveal" style="transition-delay: 300ms;">
-            <v-card class="obsession-card card-lift" elevation="4">
-              <div class="card-badge">Top song</div>
-              <div class="card-emoji">🎵</div>
-              <div class="card-title">{{ topSong.title }}</div>
-              <div class="card-meta">
-                <span class="artist">by {{ topSong.artist }}</span>
-              </div>
-              <div class="card-stat">
-                <div class="stat-huge gradient-text-blue">{{ topSong.uses }}×</div>
-                <div class="stat-label">used in posts</div>
-              </div>
-            </v-card>
-          </div>
-        </v-col>
+        <div class="reveal" style="transition-delay: 300ms;">
+          <v-card class="obsession-card card-lift" elevation="4">
+            <div class="card-badge">Top song</div>
+            <div class="card-emoji">🎵</div>
+            <div class="card-title">{{ topSong.title }}</div>
+            <div class="card-meta">
+              <span class="artist">by {{ topSong.artist }}</span>
+            </div>
+            <div class="card-stat">
+              <div class="stat-huge gradient-text-blue">{{ topSong.uses }}×</div>
+              <div class="stat-label">used in posts</div>
+            </div>
+          </v-card>
+        </div>
 
-        <v-col cols="12" md="4">
-          <div class="reveal" style="transition-delay: 450ms;">
-            <v-card class="obsession-card card-lift" elevation="4">
-              <div class="card-badge">Top comment</div>
-              <div class="card-emoji">💬</div>
-              <div class="comment-quote">"{{ topComment.text }}"</div>
-              <div class="card-meta">
-                <span class="artist">— {{ topComment.handle }}</span>
-              </div>
-              <div class="card-stat">
-                <div class="stat-huge gradient-text-gold">{{ formatNumber(topComment.likes) }}</div>
-                <div class="stat-label">likes on that comment</div>
-              </div>
-            </v-card>
-          </div>
-        </v-col>
-      </v-row>
+        <div class="reveal" style="transition-delay: 450ms;">
+          <v-card class="obsession-card card-lift" elevation="4">
+            <div class="card-badge">Top comment</div>
+            <div class="card-emoji">💬</div>
+            <div class="comment-quote">"{{ topComment.text }}"</div>
+            <div class="card-meta">
+              <span class="artist">— {{ topComment.handle }}</span>
+            </div>
+            <div class="card-stat">
+              <div class="stat-huge gradient-text-gold">{{ formatNumber(topComment.likes) }}</div>
+              <div class="stat-label">likes on that comment</div>
+            </div>
+          </v-card>
+        </div>
+      </div>
 
       <div class="reveal chip-row mt-8" style="transition-delay: 600ms;">
         <v-chip variant="tonal" color="secondary" size="large">
@@ -116,6 +110,11 @@ const emojis = [
 </template>
 
 <style scoped>
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
 .section-lede {
   margin-top: 1rem;
   font-size: 1.1rem;
@@ -126,7 +125,9 @@ const emojis = [
 .obsession-card {
   padding: 2rem;
   border-radius: 24px !important;
-  background: white;
+  background: #ffffff !important;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
   min-height: 340px;
   display: flex;
   flex-direction: column;

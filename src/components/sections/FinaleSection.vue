@@ -26,7 +26,7 @@ const emojis = [
   <section class="section section--finale">
     <FloatyEmojis :emojis="emojis" />
 
-    <v-container class="section-inner" style="max-width: 1000px; text-align: center;">
+    <v-container class="section-inner" style="max-width: 1200px;">
       <div class="reveal">
         <div class="eyebrow" style="color: #0a0a0a;">Chapter 04 · The Finale</div>
       </div>
@@ -38,7 +38,7 @@ const emojis = [
       </div>
 
       <div class="reveal" style="transition-delay: 250ms; margin-top: 2rem;">
-        <p style="font-size: clamp(1.15rem, 1.6vw, 1.4rem); line-height: 1.6; opacity: 0.85; max-width: 700px; margin: 0 auto;">
+        <p style="font-size: clamp(1.15rem, 1.6vw, 1.4rem); line-height: 1.6; opacity: 0.85; max-width: 700px;">
           What a ride, <b>{{ creatorName }}</b>. Every post, every late-night edit,
           every "just one more take" — it all added up to something really special.
         </p>
@@ -79,9 +79,22 @@ const emojis = [
 .finale-stats {
   margin-top: 3rem;
   display: flex;
-  justify-content: center;
-  gap: 4rem;
+  justify-content: flex-start;
+  gap: 2rem;
   flex-wrap: wrap;
+}
+.fs {
+  background: #ffffff;
+  border: 2px solid #0a0a0a;
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 #0a0a0a;
+  padding: 1.75rem 2.5rem;
+  min-width: 220px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.fs:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #0a0a0a;
 }
 .stat-label {
   margin-top: 0.5rem;
@@ -93,12 +106,13 @@ const emojis = [
 }
 .chart-block {
   margin-top: 3rem;
-  text-align: left;
 }
 .chart-card {
   padding: 2rem;
   border-radius: 24px !important;
-  background: white;
+  background: #ffffff !important;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
 }
 .chart-title {
   font-family: 'Fraunces', serif;

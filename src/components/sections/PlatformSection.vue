@@ -51,49 +51,47 @@ const barDatasets = [
         </p>
       </div>
 
-      <v-row class="mt-8" dense>
-        <v-col
+      <div class="card-grid mt-8">
+        <div
           v-for="platform in platformOrder"
           :key="platform"
-          cols="12"
-          md="4"
+          class="reveal"
+          :style="`transition-delay: ${150 + platformOrder.indexOf(platform) * 150}ms;`"
         >
-          <div class="reveal" :style="`transition-delay: ${150 + platformOrder.indexOf(platform) * 150}ms;`">
-            <v-card
-              class="platform-card card-lift"
-              elevation="4"
-              :class="{ 'is-top': platform === topPlatform }"
-            >
-              <div class="platform-header">
-                <div class="platform-emoji">{{ PLATFORM_META[platform].emoji }}</div>
-                <div>
-                  <div class="platform-name">{{ PLATFORM_META[platform].name }}</div>
-                  <div v-if="platform === topPlatform" class="platform-crown">👑 top platform</div>
-                </div>
+          <v-card
+            class="platform-card card-lift"
+            elevation="4"
+            :class="{ 'is-top': platform === topPlatform }"
+          >
+            <div class="platform-header">
+              <div class="platform-emoji">{{ PLATFORM_META[platform].emoji }}</div>
+              <div>
+                <div class="platform-name">{{ PLATFORM_META[platform].name }}</div>
+                <div v-if="platform === topPlatform" class="platform-crown">👑 top platform</div>
               </div>
+            </div>
 
-              <div class="metric-grid">
-                <div class="metric">
-                  <div class="metric-val">{{ formatNumber(platformStats[platform].views) }}</div>
-                  <div class="metric-lbl">views</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-val">{{ formatNumber(platformStats[platform].comments) }}</div>
-                  <div class="metric-lbl">comments</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-val">{{ formatNumber(platformStats[platform].shares) }}</div>
-                  <div class="metric-lbl">shares</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-val">{{ formatCurrency(platformStats[platform].adRevenue) }}</div>
-                  <div class="metric-lbl">ad revenue</div>
-                </div>
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="metric-val">{{ formatNumber(platformStats[platform].views) }}</div>
+                <div class="metric-lbl">views</div>
               </div>
-            </v-card>
-          </div>
-        </v-col>
-      </v-row>
+              <div class="metric">
+                <div class="metric-val">{{ formatNumber(platformStats[platform].comments) }}</div>
+                <div class="metric-lbl">comments</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">{{ formatNumber(platformStats[platform].shares) }}</div>
+                <div class="metric-lbl">shares</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">{{ formatCurrency(platformStats[platform].adRevenue) }}</div>
+                <div class="metric-lbl">ad revenue</div>
+              </div>
+            </div>
+          </v-card>
+        </div>
+      </div>
 
       <div v-if="isYear" class="reveal mt-10" style="transition-delay: 700ms;">
         <v-card class="chart-card" elevation="2">
@@ -110,6 +108,11 @@ const barDatasets = [
 </template>
 
 <style scoped>
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
 .section-lede {
   margin-top: 1rem;
   font-size: 1.1rem;
@@ -120,15 +123,16 @@ const barDatasets = [
 .platform-card {
   padding: 2rem;
   border-radius: 24px !important;
-  background: white;
+  background: #ffffff !important;
   min-height: 340px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  border: 2px solid transparent;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
 }
 .platform-card.is-top {
-  background: linear-gradient(135deg, #fff, #fff0f7);
+  background: linear-gradient(135deg, #fff, #fff0f7) !important;
   border-color: #ff2d87;
   box-shadow: 6px 6px 0 #0a0a0a !important;
 }
@@ -177,7 +181,9 @@ const barDatasets = [
 .chart-card {
   padding: 2rem;
   border-radius: 24px !important;
-  background: white;
+  background: #ffffff !important;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
 }
 .chart-title {
   font-family: 'Fraunces', serif;

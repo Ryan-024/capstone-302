@@ -61,92 +61,100 @@ const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
         </div>
       </div>
 
-      <v-row class="mt-8" dense>
-        <v-col cols="12" md="4">
-          <div class="reveal" style="transition-delay: 250ms;">
-            <v-card class="rev-card card-lift" elevation="4">
-              <div class="rev-badge">💎 Top post</div>
-              <div class="rev-title">{{ topPost.title }}</div>
-              <v-chip
-                :color="PLATFORM_META[topPost.platform].color"
-                variant="flat"
-                size="small"
-                class="text-white mt-2"
-              >
-                {{ PLATFORM_META[topPost.platform].emoji }} {{ PLATFORM_META[topPost.platform].name }}
-              </v-chip>
-              <div class="rev-money gradient-text-gold">
-                {{ formatCurrency(topPost.revenue) }}
-              </div>
-              <div class="rev-sub">{{ formatNumber(topPost.views) }} views</div>
-            </v-card>
-          </div>
-        </v-col>
+      <div class="card-grid mt-8">
+        <div class="reveal" style="transition-delay: 250ms;">
+          <v-card class="rev-card card-lift" elevation="4">
+            <div class="rev-badge">💎 Top post</div>
+            <div class="rev-title">{{ topPost.title }}</div>
+            <v-chip
+              :color="PLATFORM_META[topPost.platform].color"
+              variant="flat"
+              size="small"
+              class="text-white mt-2"
+            >
+              {{ PLATFORM_META[topPost.platform].emoji }} {{ PLATFORM_META[topPost.platform].name }}
+            </v-chip>
+            <div class="rev-money gradient-text-gold">
+              {{ formatCurrency(topPost.revenue) }}
+            </div>
+            <div class="rev-sub">{{ formatNumber(topPost.views) }} views</div>
+          </v-card>
+        </div>
 
-        <v-col cols="12" md="4">
-          <div class="reveal" style="transition-delay: 400ms;">
-            <v-card class="rev-card card-lift" elevation="4">
-              <div class="rev-badge">🎵 Top song</div>
-              <div class="rev-title">{{ topSong.title }}</div>
-              <div class="rev-artist">{{ topSong.artist }}</div>
-              <div class="rev-money gradient-text-pink">{{ topSong.uses }}×</div>
-              <div class="rev-sub">the audio that carried the vibes</div>
-            </v-card>
-          </div>
-        </v-col>
+        <div class="reveal" style="transition-delay: 400ms;">
+          <v-card class="rev-card card-lift" elevation="4">
+            <div class="rev-badge">🎵 Top song</div>
+            <div class="rev-title">{{ topSong.title }}</div>
+            <div class="rev-artist">{{ topSong.artist }}</div>
+            <div class="rev-money gradient-text-pink">{{ topSong.uses }}×</div>
+            <div class="rev-sub">the audio that carried the vibes</div>
+          </v-card>
+        </div>
 
-        <v-col cols="12" md="4">
-          <div class="reveal" style="transition-delay: 550ms;">
-            <v-card class="rev-card card-lift" elevation="4">
-              <div class="rev-badge">👑 Top platform</div>
-              <div class="rev-title">
-                {{ PLATFORM_META[topPlatform].emoji }} {{ PLATFORM_META[topPlatform].name }}
-              </div>
-              <div class="rev-artist">Highest earner this {{ isYear ? 'year' : 'month' }}</div>
-              <div class="rev-money gradient-text-blue">
-                {{ formatCurrency(platformStats[topPlatform].adRevenue) }}
-              </div>
-              <div class="rev-sub">in ad revenue</div>
-            </v-card>
-          </div>
-        </v-col>
-      </v-row>
+        <div class="reveal" style="transition-delay: 550ms;">
+          <v-card class="rev-card card-lift" elevation="4">
+            <div class="rev-badge">👑 Top platform</div>
+            <div class="rev-title">
+              {{ PLATFORM_META[topPlatform].emoji }} {{ PLATFORM_META[topPlatform].name }}
+            </div>
+            <div class="rev-artist">Highest earner this {{ isYear ? 'year' : 'month' }}</div>
+            <div class="rev-money gradient-text-blue">
+              {{ formatCurrency(platformStats[topPlatform].adRevenue) }}
+            </div>
+            <div class="rev-sub">in ad revenue</div>
+          </v-card>
+        </div>
+      </div>
 
-      <v-row class="mt-8" dense>
-        <v-col cols="12" md="5">
-          <div class="reveal" style="transition-delay: 700ms;">
-            <v-card class="chart-card" elevation="2">
-              <div class="chart-title">Revenue mix</div>
-              <div class="chart-sub">Where your income came from</div>
-              <DoughnutChart
-                :labels="doughnutLabels"
-                :values="doughnutValues"
-                :colors="doughnutColors"
-              />
-            </v-card>
-          </div>
-        </v-col>
+      <div class="chart-grid mt-8">
+        <div class="reveal" style="transition-delay: 700ms;">
+          <v-card class="chart-card" elevation="2">
+            <div class="chart-title">Revenue mix</div>
+            <div class="chart-sub">Where your income came from</div>
+            <DoughnutChart
+              :labels="doughnutLabels"
+              :values="doughnutValues"
+              :colors="doughnutColors"
+            />
+          </v-card>
+        </div>
 
-        <v-col v-if="isYear" cols="12" md="7">
-          <div class="reveal" style="transition-delay: 800ms;">
-            <v-card class="chart-card" elevation="2">
-              <div class="chart-title">Revenue over the year</div>
-              <div class="chart-sub">You closed strong 💪</div>
-              <LineChart
-                :labels="monthLabels"
-                :values="monthlyRevenue"
-                label="Revenue"
-                color="#FF6B1A"
-              />
-            </v-card>
-          </div>
-        </v-col>
-      </v-row>
+        <div v-if="isYear" class="reveal chart-wide" style="transition-delay: 800ms;">
+          <v-card class="chart-card" elevation="2">
+            <div class="chart-title">Revenue over the year</div>
+            <div class="chart-sub">You closed strong 💪</div>
+            <LineChart
+              :labels="monthLabels"
+              :values="monthlyRevenue"
+              label="Revenue"
+              color="#FF6B1A"
+            />
+          </v-card>
+        </div>
+      </div>
     </v-container>
   </section>
 </template>
 
 <style scoped>
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 960px) {
+  .chart-grid {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+.chart-wide {
+  min-width: 0;
+}
 .section-lede {
   margin-top: 1rem;
   font-size: 1.1rem;
@@ -159,7 +167,11 @@ const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 2.5rem 1.5rem;
+  background: #ffffff;
+  border: 2px solid #0a0a0a;
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 #0a0a0a;
 }
 .stat-label {
   margin-top: 0.5rem;
@@ -172,7 +184,9 @@ const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
 .rev-card {
   padding: 2rem;
   border-radius: 24px !important;
-  background: white;
+  background: #ffffff !important;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
   min-height: 300px;
   display: flex;
   flex-direction: column;
@@ -211,7 +225,9 @@ const doughnutColors = ['#FF2D87', '#0A0A0A', '#FF3D3D']
 .chart-card {
   padding: 2rem;
   border-radius: 24px !important;
-  background: white;
+  background: #ffffff !important;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
 }
 .chart-title {
   font-family: 'Fraunces', serif;

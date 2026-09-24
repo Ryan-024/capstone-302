@@ -69,7 +69,6 @@ const barDatasets = [
               <div class="platform-emoji">{{ PLATFORM_META[platform].emoji }}</div>
               <div>
                 <div class="platform-name">{{ PLATFORM_META[platform].name }}</div>
-                <div v-if="platform === topPlatform" class="platform-crown">👑 top platform</div>
               </div>
             </div>
 
@@ -91,6 +90,8 @@ const barDatasets = [
                 <div class="metric-lbl">ad revenue</div>
               </div>
             </div>
+
+            <div v-if="platform === topPlatform" class="platform-crown">👑 top platform</div>
           </v-card>
         </div>
       </div>
@@ -98,7 +99,6 @@ const barDatasets = [
       <div v-if="isYear" class="reveal mt-10" style="transition-delay: 700ms;">
         <v-card class="chart-card" elevation="2">
           <div class="chart-title">Monthly views across platforms</div>
-          <div class="chart-sub">A little bit of every month, side by side</div>
           <BarChart
             :labels="monthLabels"
             :datasets="barDatasets"
@@ -153,12 +153,18 @@ const barDatasets = [
   font-size: 1.6rem;
 }
 .platform-crown {
+  margin-top: auto;
+  align-self: center;
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: #b026ff;
   font-weight: 700;
-  margin-top: 2px;
+  padding: 6px 12px;
+  border: 2px solid #0a0a0a;
+  border-radius: 999px;
+  background: #fff0f7;
+  box-shadow: 3px 3px 0 #0a0a0a;
 }
 .metric-grid {
   display: grid;

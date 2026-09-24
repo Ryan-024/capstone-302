@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Doughnut } from 'vue-chartjs'
 import '../../plugins/chart'
+import { formatCurrency } from '../../composables/useMetrics'
 import type { ChartData, ChartOptions } from 'chart.js'
 
 const props = defineProps<{
@@ -15,7 +16,7 @@ const chartData: ChartData<'doughnut'> = {
     {
       data: props.values,
       backgroundColor: props.colors,
-      borderColor: '#FFFBF2',
+      borderColor: '#F4ECDC',
       borderWidth: 4,
       hoverOffset: 8
     }
@@ -36,7 +37,7 @@ const options: ChartOptions<'doughnut'> = {
       }
     },
     tooltip: {
-      backgroundColor: '#1B0140',
+      backgroundColor: '#0a0a0a',
       padding: 10,
       cornerRadius: 12,
       callbacks: {
@@ -44,7 +45,7 @@ const options: ChartOptions<'doughnut'> = {
           const total = ctx.dataset.data.reduce((a: number, b: number) => a + b, 0)
           const val = ctx.parsed as number
           const pct = ((val / total) * 100).toFixed(1)
-          return ` ${ctx.label}: ${pct}%`
+          return ` ${ctx.label}: ${formatCurrency(val)} (${pct}%)`
         }
       }
     }

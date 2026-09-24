@@ -100,7 +100,9 @@ export function useMetrics() {
       }
     }
     const m = selectedMonth.value!
-    return { ...m.subscribers, percent: 0 }
+    const startOfMonth = m.subscribers.total - m.subscribers.net
+    const percent = startOfMonth > 0 ? (m.subscribers.net / startOfMonth) * 100 : 0
+    return { ...m.subscribers, percent }
   })
 
   const monthLabels = months.map((m) => m.month.slice(0, 3))
@@ -137,7 +139,7 @@ export function formatCurrency(n: number): string {
 }
 
 export const PLATFORM_META: Record<PlatformKey, { name: string; icon: string; color: string; emoji: string }> = {
-  instagram: { name: 'Instagram', icon: 'mdi-instagram', color: '#FF467A', emoji: '📸' },
-  tiktok:    { name: 'TikTok',    icon: 'mdi-music-note', color: '#1B0140', emoji: '🎵' },
-  youtube:   { name: 'YouTube',   icon: 'mdi-youtube',    color: '#AB03A9', emoji: '📺' }
+  instagram: { name: 'Instagram', icon: 'mdi-instagram', color: '#FF2D87', emoji: '📸' },
+  tiktok:    { name: 'TikTok',    icon: 'mdi-music-note', color: '#0A0A0A', emoji: '🎵' },
+  youtube:   { name: 'YouTube',   icon: 'mdi-youtube',    color: '#FF3D3D', emoji: '📺' }
 }

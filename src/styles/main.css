@@ -1,16 +1,19 @@
 :root {
-  --ink: #1B0140;
-  --purple: #5003c0;
-  --magenta: #ab03a9;
-  --pink: #ff467a;
-  --yellow: #ffd51e;
+  --ink: #0a0a0a;
+  --pink: #ff2d87;
+  --purple: #b026ff;
+  --gold: #ffe600;
+  --blue: #00d1ff;
+  --green: #39ff14;
+  --red: #ff3d3d;
+  --paper: #f4ecdc;
 }
 
 html, body, #app {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background: #fffbf2;
+  background: var(--paper);
   color: var(--ink);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
@@ -47,17 +50,16 @@ html, body, #app {
 
 .section {
   position: relative;
-  min-height: 100vh;
   padding: 8rem 0 8rem;
   overflow: hidden;
 }
 
-.section--hero      { background: linear-gradient(180deg, #ffe8ec 0%, #ffd6df 100%); }
-.section--obsessed  { background: linear-gradient(180deg, #f3e8fe 0%, #ffc7d6 100%); }
-.section--obsessed  { background: linear-gradient(180deg, #efddff 0%, #d6b3ff 100%); }
-.section--platform  { background: linear-gradient(180deg, #ffe0f0 0%, #ffc0dc 100%); }
-.section--revenue   { background: linear-gradient(180deg, #fff3b8 0%, #ffe375 100%); }
-.section--finale    { background: linear-gradient(180deg, #f5e4ff 0%, #e5c8ff
+.section--hero      { background: linear-gradient(180deg, #ffd0e2 0%, #ff9ec5 100%); }
+.section--obsessed  { background: linear-gradient(180deg, #ecd7ff 0%, #cd94ff 100%); }
+.section--platform  { background: linear-gradient(180deg, #d1f5ff 0%, #8fe4ff 100%); }
+.section--revenue   { background: linear-gradient(180deg, #ffb37a 0%, #ff6b1a 100%); }
+.section--finale    { background: linear-gradient(180deg, #d6ffca 0%, #a8ff85 100%); }
+
 .section-inner {
   position: relative;
   z-index: 2;
@@ -102,32 +104,33 @@ html, body, #app {
 }
 
 .card-lift {
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .card-lift:hover {
-  transform: translateY(-6px);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #0a0a0a !important;
 }
 
 .gradient-text-pink {
-  background: linear-gradient(90deg, #ff467a, #ab03a9);
+  background: linear-gradient(90deg, #ff2d87, #b026ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .gradient-text-gold {
-  background: linear-gradient(90deg, #ffd51e, #ff467a);
+  background: linear-gradient(90deg, #ff6b1a, #b026ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .gradient-text-blue {
-  background: linear-gradient(90deg, #5003c0, #ab03a9);
+  background: linear-gradient(90deg, #00d1ff, #b026ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .gradient-text-green {
-  background: linear-gradient(90deg, #ab03a9, #ffd51e);
+  background: linear-gradient(90deg, #39ff14, #00d1ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -150,4 +153,48 @@ html, body, #app {
   filter: blur(80px);
   opacity: 0.55;
   z-index: 1;
+}
+
+/* -------------------------------------------------------
+ * High-contrast mode (accessibility toggle in AppBar)
+ * Forces all text to pure black, disables gradient text
+ * fills, boosts opacity on de-emphasized labels.
+ * ----------------------------------------------------- */
+.high-contrast,
+.high-contrast *:not(.contrast-toggle):not(.contrast-toggle *) {
+  color: #000000 !important;
+}
+.high-contrast .contrast-toggle.is-active,
+.high-contrast .contrast-toggle.is-active * {
+  color: #ffffff !important;
+}
+.high-contrast .gradient-text-pink,
+.high-contrast .gradient-text-gold,
+.high-contrast .gradient-text-blue,
+.high-contrast .gradient-text-green {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+.high-contrast .eyebrow,
+.high-contrast .stat-label,
+.high-contrast .metric-lbl,
+.high-contrast .card-badge,
+.high-contrast .rev-badge,
+.high-contrast .rev-sub,
+.high-contrast .rev-artist,
+.high-contrast .chart-sub,
+.high-contrast .section-lede,
+.high-contrast .brand-sub,
+.high-contrast .sig-sub,
+.high-contrast .scroll-cue,
+.high-contrast .platform-crown,
+.high-contrast .artist,
+.high-contrast .divider-dot {
+  opacity: 1 !important;
+}
+.high-contrast .v-chip {
+  color: #000000 !important;
 }

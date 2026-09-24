@@ -5,22 +5,22 @@ import { createVuetify } from 'vuetify'
 const wrappedTheme = {
   dark: false,
   colors: {
-    background: '#FFFBF2',
+    background: '#F4ECDC',
     surface: '#FFFFFF',
-    primary: '#FF467A',      // pink
-    secondary: '#5003C0',    // deep purple
-    accent: '#FFD51E',       // yellow
-    info: '#AB03A9',         // magenta
-    success: '#AB03A9',
-    warning: '#FFD51E',
-    error: '#FF467A',
+    primary: '#FF2D87',      // hot punk pink
+    secondary: '#B026FF',    // electric violet
+    accent: '#FFE600',       // acid yellow
+    info: '#00D1FF',         // electric cyan
+    success: '#39FF14',      // neon lime
+    warning: '#FF3D3D',      // blood red
+    error: '#FF267F',
     // custom section tokens
-    'section-hero': '#FFE8EE',
-    'section-obsessed': '#EFDDFF',
-    'section-platform': '#FFE0F0',
-    'section-revenue': '#FFF3B8',
-    'section-finale': '#F5E4FF',
-    'ink': '#1B0140'
+    'section-hero': '#FFD0E2',
+    'section-obsessed': '#ECD7FF',
+    'section-platform': '#D1F5FF',
+    'section-revenue': '#FFF394',
+    'section-finale': '#D6FFCA',
+    'ink': '#0A0A0A'
   }
 }
 

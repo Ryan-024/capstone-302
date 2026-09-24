@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import FloatyEmojis from '../FloatyEmojis.vue'
 import BarChart from '../charts/BarChart.vue'
 import { formatNumber, formatCurrency, PLATFORM_META } from '../../composables/useMetrics'
@@ -19,14 +20,29 @@ const emojis = [
   { char: '📸', top: '14%', left: '5%', speed: 0.22, rot: -8 },
   { char: '🎬', top: '20%', left: '86%', speed: 0.18, rot: 10 },
   { char: '📱', top: '72%', left: '10%', speed: 0.16, rot: 4 },
-  { char: '💫', top: '80%', left: '82%', speed: 0.24, rot: -14 }
+  { char: '💫', top: '80%', left: '82%', speed: 0.24, rot: -14 },
+  { char: '📺', top: '46%', left: '3%', speed: 0.2, rot: 6 },
+  { char: '🎵', top: '52%', left: '92%', speed: 0.26, rot: -6 }
 ]
 
-const barDatasets = [
-  { label: 'Instagram', values: props.monthlyViews.instagram, color: '#FF467A' },
-  { label: 'TikTok',    values: props.monthlyViews.tiktok,    color: '#5003C0' },
-  { label: 'YouTube',   values: props.monthlyViews.youtube,   color: '#AB03A9' }
-]
+// Year: monthly views per platform. Month: single-column grouped bars of that month's views per platform.
+const barLabels = computed(() => (props.isYear ? props.monthLabels : [props.scopeLabel]))
+const barDatasets = computed(() =>
+  props.isYear
+    ? [
+        { label: 'Instagram', values: props.monthlyViews.instagram, color: '#00D1FF' },
+        { label: 'TikTok',    values: props.monthlyViews.tiktok,    color: '#0A0A0A' },
+        { label: 'YouTube',   values: props.monthlyViews.youtube,   color: '#FF3D3D' }
+      ]
+    : [
+        { label: 'Instagram', values: [props.platformStats.instagram.views], color: '#00D1FF' },
+        { label: 'TikTok',    values: [props.platformStats.tiktok.views],    color: '#0A0A0A' },
+        { label: 'YouTube',   values: [props.platformStats.youtube.views],   color: '#FF3D3D' }
+      ]
+)
+const barChartTitle = computed(() =>
+  props.isYear ? 'Monthly views across platforms' : `Views by platform in ${props.scopeLabel}`
+)
 </script>
 
 <template>
@@ -35,7 +51,7 @@ const barDatasets = [
 
     <v-container class="section-inner" style="max-width: 1200px;">
       <div class="reveal">
-        <div class="eyebrow" style="color: #ab03a9;">Chapter 02 · {{ scopeLabel }}</div>
+        <div class="eyebrow" style="color: #0a0a0a;">Chapter 02 · {{ scopeLabel }}</div>
       </div>
 
       <div class="reveal" style="transition-delay: 100ms;">
@@ -51,56 +67,65 @@ const barDatasets = [
         </p>
       </div>
 
-      <v-row class="mt-8" dense>
-        <v-col
+      <div class="card-grid mt-8">
+        <div
           v-for="platform in platformOrder"
           :key="platform"
-          cols="12"
-          md="4"
+          class="reveal"
+          :style="`transition-delay: ${150 + platformOrder.indexOf(platform) * 150}ms;`"
         >
-          <div class="reveal" :style="`transition-delay: ${150 + platformOrder.indexOf(platform) * 150}ms;`">
-            <v-card
-              class="platform-card card-lift"
-              elevation="4"
-              :class="{ 'is-top': platform === topPlatform }"
-            >
-              <div class="platform-header">
-                <div class="platform-emoji">{{ PLATFORM_META[platform].emoji }}</div>
-                <div>
-                  <div class="platform-name">{{ PLATFORM_META[platform].name }}</div>
-                  <div v-if="platform === topPlatform" class="platform-crown">👑 top platform</div>
-                </div>
-              </div>
-
-              <div class="metric-grid">
-                <div class="metric">
-                  <div class="metric-val">{{ formatNumber(platformStats[platform].views) }}</div>
-                  <div class="metric-lbl">views</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-val">{{ formatNumber(platformStats[platform].comments) }}</div>
-                  <div class="metric-lbl">comments</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-val">{{ formatNumber(platformStats[platform].shares) }}</div>
-                  <div class="metric-lbl">shares</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-val">{{ formatCurrency(platformStats[platform].adRevenue) }}</div>
-                  <div class="metric-lbl">ad revenue</div>
-                </div>
-              </div>
-            </v-card>
+          <div
+            v-if="platform === topPlatform"
+            class="top-platform-pill"
+          >
+            👑 top platform
           </div>
-        </v-col>
-      </v-row>
+          <div
+            v-else
+            class="top-platform-pill top-platform-pill--ghost"
+            aria-hidden="true"
+          >
+            👑 top platform
+          </div>
+          <v-card
+            class="platform-card card-lift"
+            elevation="4"
+            :class="{ 'is-top': platform === topPlatform }"
+          >
+            <div class="platform-header">
+              <div class="platform-emoji">{{ PLATFORM_META[platform].emoji }}</div>
+              <div>
+                <div class="platform-name">{{ PLATFORM_META[platform].name }}</div>
+              </div>
+            </div>
 
-      <div v-if="isYear" class="reveal mt-10" style="transition-delay: 700ms;">
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="metric-val">{{ formatNumber(platformStats[platform].views) }}</div>
+                <div class="metric-lbl">views</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">{{ formatNumber(platformStats[platform].comments) }}</div>
+                <div class="metric-lbl">comments</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">{{ formatNumber(platformStats[platform].shares) }}</div>
+                <div class="metric-lbl">shares</div>
+              </div>
+              <div class="metric">
+                <div class="metric-val">{{ formatCurrency(platformStats[platform].adRevenue) }}</div>
+                <div class="metric-lbl">ad revenue</div>
+              </div>
+            </div>
+          </v-card>
+        </div>
+      </div>
+
+      <div class="reveal mt-10" style="transition-delay: 700ms;">
         <v-card class="chart-card" elevation="2">
-          <div class="chart-title">Monthly views across platforms</div>
-          <div class="chart-sub">A little bit of every month, side by side</div>
+          <div class="chart-title">{{ barChartTitle }}</div>
           <BarChart
-            :labels="monthLabels"
+            :labels="barLabels"
             :datasets="barDatasets"
           />
         </v-card>
@@ -110,6 +135,21 @@ const barDatasets = [
 </template>
 
 <style scoped>
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+.card-grid > .reveal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.card-grid > .reveal > .platform-card {
+  width: 100%;
+  flex: 1;
+}
 .section-lede {
   margin-top: 1rem;
   font-size: 1.1rem;
@@ -118,57 +158,66 @@ const barDatasets = [
   opacity: 0.8;
 }
 .platform-card {
-  padding: 2rem;
+  padding: 1.75rem;
   border-radius: 24px !important;
-  background: white;
-  min-height: 340px;
+  background: #ffffff !important;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  border: 2px solid transparent;
+  gap: 1.25rem;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
 }
 .platform-card.is-top {
-  background: linear-gradient(135deg, #fff, #fff2f7);
-  border-color: #ff467a;
-  box-shadow: 0 20px 40px -20px rgba(255, 70, 122, 0.4) !important;
+  background: linear-gradient(135deg, #fff, #fff0f7) !important;
+  border-color: #ff2d87;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
 }
 .platform-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 .platform-emoji {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   line-height: 1;
 }
 .platform-name {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
-.platform-crown {
-  font-size: 0.72rem;
+.top-platform-pill {
+  align-self: center;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #ab03a9;
+  color: #b026ff;
   font-weight: 700;
-  margin-top: 2px;
+  padding: 6px 14px;
+  border: 2px solid #0a0a0a;
+  border-radius: 999px;
+  background: #fff0f7;
+  box-shadow: 3px 3px 0 #0a0a0a;
+}
+.top-platform-pill--ghost {
+  visibility: hidden;
+  pointer-events: none;
 }
 .metric-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem 1.5rem;
+  gap: 0.75rem 1rem;
 }
 .metric-val {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1;
-  color: #1b0140;
+  color: #0a0a0a;
 }
 .metric-lbl {
-  margin-top: 0.25rem;
-  font-size: 0.72rem;
+  margin-top: 0.2rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   opacity: 0.6;
@@ -177,12 +226,15 @@ const barDatasets = [
 .chart-card {
   padding: 2rem;
   border-radius: 24px !important;
-  background: white;
+  background: #ffffff !important;
+  border: 2px solid #0a0a0a;
+  box-shadow: 6px 6px 0 #0a0a0a !important;
 }
 .chart-title {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
 }
 .chart-sub {
   opacity: 0.65;

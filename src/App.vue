@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import AppBar from './components/AppBar.vue'
 import HeroSection from './components/sections/HeroSection.vue'
 import ObsessedSection from './components/sections/ObsessedSection.vue'
@@ -43,6 +43,8 @@ const monthlyFollowers = months.map((m) => m.subscribers.total)
 
 // Force reveal re-init after selection swaps
 useReveal()
+
+const highContrast = ref(false)
 watch(selection, async () => {
   await nextTick()
   // Reset .reveal state so new content animates back in
@@ -62,9 +64,10 @@ watch(selection, async () => {
 </script>
 
 <template>
-  <v-app>
+  <v-app :class="{ 'high-contrast': highContrast }">
     <AppBar
       v-model="selection"
+      v-model:high-contrast="highContrast"
       :months="monthNames"
       :handle="creator.handle"
     />
@@ -114,8 +117,12 @@ watch(selection, async () => {
         <FinaleSection
           :creator-name="creator.name"
           :handle="creator.handle"
+          :total-followers="subscribers.total"
           :net-growth="subscribers.net"
+          :gained="subscribers.gained"
+          :lost="subscribers.lost"
           :percent="subscribers.percent"
+          :scope-label="scopeLabel"
           :month-labels="monthLabels"
           :monthly-followers="monthlyFollowers"
           :is-year="isYear"

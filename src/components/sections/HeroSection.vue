@@ -13,24 +13,24 @@ defineProps<{
 }>()
 
 const emojis = [
-  { char: '🎉', top: '18%', left: '8%', speed: 0.15, rot: -8 },
-  { char: '✨', top: '24%', left: '82%', speed: 0.22, rot: 12 },
-  { char: '🎊', top: '65%', left: '12%', speed: 0.18, rot: 6 },
-  { char: '🥳', top: '72%', left: '78%', speed: 0.12, rot: -14 },
-  { char: '💖', top: '40%', left: '5%', speed: 0.28, rot: 0 },
-  { char: '🌟', top: '52%', left: '90%', speed: 0.2, rot: 20 }
+  { char: '🎉', top: '12%', left: '5%',  speed: 0.15, rot: -8 },
+  { char: '✨', top: '18%', left: '88%', speed: 0.22, rot: 12 },
+  { char: '💖', top: '42%', left: '2%',  speed: 0.28, rot: 0 },
+  { char: '🌟', top: '48%', left: '92%', speed: 0.2,  rot: 20 },
+  { char: '🎊', top: '78%', left: '6%',  speed: 0.18, rot: 6 },
+  { char: '🥳', top: '84%', left: '86%', speed: 0.12, rot: -14 }
 ]
 </script>
 
 <template>
   <section class="section section--hero">
-    <div class="hero-blob" style="width: 500px; height: 500px; background: #ff467a; top: -100px; left: -100px;"></div>
-    <div class="hero-blob" style="width: 400px; height: 400px; background: #ffd51e; bottom: -80px; right: -80px;"></div>
+    <div class="hero-blob" style="width: 500px; height: 500px; background: #ff2d87; top: -100px; left: -100px;" />
+    <div class="hero-blob" style="width: 400px; height: 400px; background: #ffe600; bottom: -80px; right: -80px;" />
     <FloatyEmojis :emojis="emojis" />
 
     <v-container class="section-inner" style="max-width: 1200px;">
       <div class="reveal">
-        <div class="eyebrow" style="color: #ab03a9;">{{ scopeLabel }} · Content Buddy Wrapped</div>
+        <div class="eyebrow" style="color: #0a0a0a;">{{ scopeLabel }} · Content Buddy Wrapped</div>
       </div>
 
       <div class="reveal" style="transition-delay: 100ms; margin-top: 1rem;">
@@ -49,15 +49,15 @@ const emojis = [
       </div>
 
       <div class="reveal stats-row" style="transition-delay: 400ms;">
-        <div class="stat">
+        <div class="stat-card">
           <div class="stat-huge gradient-text-pink">{{ formatNumber(totalViews) }}</div>
           <div class="stat-label">Total views {{ isYear ? 'in 2025' : 'this month' }}</div>
         </div>
-        <div class="stat">
+        <div class="stat-card">
           <div class="stat-huge gradient-text-gold">{{ formatNumber(subscribers) }}</div>
           <div class="stat-label">Followers by year end</div>
         </div>
-        <div class="stat">
+        <div class="stat-card">
           <div class="stat-huge gradient-text-blue">+{{ formatNumber(netGrowth) }}</div>
           <div class="stat-label">Net new followers</div>
         </div>
@@ -73,6 +73,7 @@ const emojis = [
 
 <style scoped>
 .section--hero {
+  min-height: 100vh;
   padding-top: 10rem;
   padding-bottom: 6rem;
 }
@@ -81,6 +82,18 @@ const emojis = [
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
+}
+.stat-card {
+  background: #ffffff;
+  border: 2px solid #0a0a0a;
+  border-radius: 24px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 6px 6px 0 #0a0a0a;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.stat-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #0a0a0a;
 }
 .stat-label {
   margin-top: 0.5rem;

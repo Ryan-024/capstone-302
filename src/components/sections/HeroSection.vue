@@ -49,15 +49,15 @@ const emojis = [
       </div>
 
       <div class="reveal stats-row" style="transition-delay: 400ms;">
-        <div class="stat">
+        <div class="stat-card">
           <div class="stat-huge gradient-text-pink">{{ formatNumber(totalViews) }}</div>
           <div class="stat-label">Total views {{ isYear ? 'in 2025' : 'this month' }}</div>
         </div>
-        <div class="stat">
+        <div class="stat-card">
           <div class="stat-huge gradient-text-gold">{{ formatNumber(subscribers) }}</div>
           <div class="stat-label">Followers by year end</div>
         </div>
-        <div class="stat">
+        <div class="stat-card">
           <div class="stat-huge gradient-text-blue">+{{ formatNumber(netGrowth) }}</div>
           <div class="stat-label">Net new followers</div>
         </div>
@@ -81,6 +81,18 @@ const emojis = [
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
+}
+.stat-card {
+  background: #ffffff;
+  border: 2px solid #0a0a0a;
+  border-radius: 24px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 6px 6px 0 #0a0a0a;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.stat-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #0a0a0a;
 }
 .stat-label {
   margin-top: 0.5rem;

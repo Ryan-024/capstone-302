@@ -117,8 +117,12 @@ watch(selection, async () => {
         <FinaleSection
           :creator-name="creator.name"
           :handle="creator.handle"
+          :total-followers="subscribers.total"
           :net-growth="subscribers.net"
+          :gained="subscribers.gained"
+          :lost="subscribers.lost"
           :percent="subscribers.percent"
+          :scope-label="scopeLabel"
           :month-labels="monthLabels"
           :monthly-followers="monthlyFollowers"
           :is-year="isYear"

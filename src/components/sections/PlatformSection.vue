@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import FloatyEmojis from '../FloatyEmojis.vue'
 import BarChart from '../charts/BarChart.vue'
 import { formatNumber, formatCurrency, PLATFORM_META } from '../../composables/useMetrics'
@@ -24,11 +25,24 @@ const emojis = [
   { char: '🎵', top: '52%', left: '92%', speed: 0.26, rot: -6 }
 ]
 
-const barDatasets = [
-  { label: 'Instagram', values: props.monthlyViews.instagram, color: '#00D1FF' },
-  { label: 'TikTok',    values: props.monthlyViews.tiktok,    color: '#0A0A0A' },
-  { label: 'YouTube',   values: props.monthlyViews.youtube,   color: '#FF3D3D' }
-]
+// Year: monthly views per platform. Month: single-column grouped bars of that month's views per platform.
+const barLabels = computed(() => (props.isYear ? props.monthLabels : [props.scopeLabel]))
+const barDatasets = computed(() =>
+  props.isYear
+    ? [
+        { label: 'Instagram', values: props.monthlyViews.instagram, color: '#00D1FF' },
+        { label: 'TikTok',    values: props.monthlyViews.tiktok,    color: '#0A0A0A' },
+        { label: 'YouTube',   values: props.monthlyViews.youtube,   color: '#FF3D3D' }
+      ]
+    : [
+        { label: 'Instagram', values: [props.platformStats.instagram.views], color: '#00D1FF' },
+        { label: 'TikTok',    values: [props.platformStats.tiktok.views],    color: '#0A0A0A' },
+        { label: 'YouTube',   values: [props.platformStats.youtube.views],   color: '#FF3D3D' }
+      ]
+)
+const barChartTitle = computed(() =>
+  props.isYear ? 'Monthly views across platforms' : `Views by platform in ${props.scopeLabel}`
+)
 </script>
 
 <template>
@@ -96,11 +110,11 @@ const barDatasets = [
         </div>
       </div>
 
-      <div v-if="isYear" class="reveal mt-10" style="transition-delay: 700ms;">
+      <div class="reveal mt-10" style="transition-delay: 700ms;">
         <v-card class="chart-card" elevation="2">
-          <div class="chart-title">Monthly views across platforms</div>
+          <div class="chart-title">{{ barChartTitle }}</div>
           <BarChart
-            :labels="monthLabels"
+            :labels="barLabels"
             :datasets="barDatasets"
           />
         </v-card>

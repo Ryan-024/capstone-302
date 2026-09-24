@@ -1,13 +1,19 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import FloatyEmojis from '../FloatyEmojis.vue'
+import BarChart from '../charts/BarChart.vue'
 import LineChart from '../charts/LineChart.vue'
 import { formatNumber } from '../../composables/useMetrics'
 
-defineProps<{
+const props = defineProps<{
   creatorName: string
   handle: string
+  totalFollowers: number
   netGrowth: number
+  gained: number
+  lost: number
   percent: number
+  scopeLabel: string
   monthLabels: string[]
   monthlyFollowers: number[]
   isYear: boolean
@@ -21,6 +27,12 @@ const emojis = [
   { char: '🎊', top: '42%', left: '92%', speed: 0.28, rot: 0 },
   { char: '⭐', top: '48%', left: '3%', speed: 0.24, rot: -12 }
 ]
+
+const monthBarLabels = computed(() => [props.scopeLabel])
+const monthBarDatasets = computed(() => [
+  { label: 'Gained', values: [props.gained], color: '#39FF14' },
+  { label: 'Lost',   values: [props.lost],   color: '#FF3D3D' }
+])
 </script>
 
 <template>
@@ -45,25 +57,33 @@ const emojis = [
         </p>
       </div>
 
-      <div v-if="isYear" class="reveal finale-stats" style="transition-delay: 400ms;">
+      <div class="reveal finale-stats" style="transition-delay: 400ms;">
         <div class="fs">
           <div class="stat-huge gradient-text-green">+{{ formatNumber(netGrowth) }}</div>
-          <div class="stat-label">new followers</div>
+          <div class="stat-label">new followers in {{ scopeLabel }}</div>
         </div>
         <div class="fs">
           <div class="stat-huge gradient-text-blue">{{ percent.toFixed(1) }}%</div>
-          <div class="stat-label">audience growth</div>
+          <div class="stat-label">audience growth in {{ scopeLabel }}</div>
         </div>
       </div>
 
-      <div v-if="isYear" class="reveal chart-block" style="transition-delay: 550ms;">
+      <div class="reveal chart-block" style="transition-delay: 550ms;">
         <v-card class="chart-card" elevation="2">
-          <div class="chart-title">Follower journey · Jan → Dec</div>
+          <div class="chart-title">
+            {{ isYear ? 'Follower journey · Jan → Dec' : `Follower flow in ${scopeLabel}` }}
+          </div>
           <LineChart
+            v-if="isYear"
             :labels="monthLabels"
             :values="monthlyFollowers"
             label="Followers"
             color="#39FF14"
+          />
+          <BarChart
+            v-else
+            :labels="monthBarLabels"
+            :datasets="monthBarDatasets"
           />
         </v-card>
       </div>

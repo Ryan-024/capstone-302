@@ -100,7 +100,9 @@ export function useMetrics() {
       }
     }
     const m = selectedMonth.value!
-    return { ...m.subscribers, percent: 0 }
+    const startOfMonth = m.subscribers.total - m.subscribers.net
+    const percent = startOfMonth > 0 ? (m.subscribers.net / startOfMonth) * 100 : 0
+    return { ...m.subscribers, percent }
   })
 
   const monthLabels = months.map((m) => m.month.slice(0, 3))

@@ -19,7 +19,9 @@ const emojis = [
   { char: '📸', top: '14%', left: '5%', speed: 0.22, rot: -8 },
   { char: '🎬', top: '20%', left: '86%', speed: 0.18, rot: 10 },
   { char: '📱', top: '72%', left: '10%', speed: 0.16, rot: 4 },
-  { char: '💫', top: '80%', left: '82%', speed: 0.24, rot: -14 }
+  { char: '💫', top: '80%', left: '82%', speed: 0.24, rot: -14 },
+  { char: '📺', top: '46%', left: '3%', speed: 0.2, rot: 6 },
+  { char: '🎵', top: '52%', left: '92%', speed: 0.26, rot: -6 }
 ]
 
 const barDatasets = [

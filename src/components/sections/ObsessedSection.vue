@@ -22,7 +22,9 @@ const emojis = [
   { char: '💜', top: '12%', left: '6%', speed: 0.2, rot: -12 },
   { char: '🎧', top: '18%', left: '85%', speed: 0.16, rot: 10 },
   { char: '📸', top: '70%', left: '4%', speed: 0.24, rot: 4 },
-  { char: '💬', top: '78%', left: '88%', speed: 0.18, rot: -6 }
+  { char: '💬', top: '78%', left: '88%', speed: 0.18, rot: -6 },
+  { char: '🎶', top: '44%', left: '92%', speed: 0.22, rot: 8 },
+  { char: '✨', top: '52%', left: '2%', speed: 0.26, rot: -4 }
 ]
 </script>
 

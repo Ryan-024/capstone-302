@@ -18,7 +18,8 @@ const emojis = [
   { char: '🥂', top: '18%', left: '84%', speed: 0.15, rot: 8 },
   { char: '💚', top: '68%', left: '10%', speed: 0.22, rot: -6 },
   { char: '🌈', top: '76%', left: '82%', speed: 0.18, rot: 14 },
-  { char: '🎊', top: '42%', left: '92%', speed: 0.28, rot: 0 }
+  { char: '🎊', top: '42%', left: '92%', speed: 0.28, rot: 0 },
+  { char: '⭐', top: '48%', left: '3%', speed: 0.24, rot: -12 }
 ]
 </script>
 

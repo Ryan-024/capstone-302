@@ -13,12 +13,12 @@ defineProps<{
 }>()
 
 const emojis = [
-  { char: '🎉', top: '18%', left: '8%', speed: 0.15, rot: -8 },
-  { char: '✨', top: '24%', left: '82%', speed: 0.22, rot: 12 },
-  { char: '🎊', top: '65%', left: '12%', speed: 0.18, rot: 6 },
-  { char: '🥳', top: '72%', left: '78%', speed: 0.12, rot: -14 },
-  { char: '💖', top: '40%', left: '5%', speed: 0.28, rot: 0 },
-  { char: '🌟', top: '52%', left: '90%', speed: 0.2, rot: 20 }
+  { char: '🎉', top: '12%', left: '5%',  speed: 0.15, rot: -8 },
+  { char: '✨', top: '18%', left: '88%', speed: 0.22, rot: 12 },
+  { char: '💖', top: '42%', left: '2%',  speed: 0.28, rot: 0 },
+  { char: '🌟', top: '48%', left: '92%', speed: 0.2,  rot: 20 },
+  { char: '🎊', top: '78%', left: '6%',  speed: 0.18, rot: 6 },
+  { char: '🥳', top: '84%', left: '86%', speed: 0.12, rot: -14 }
 ]
 </script>
 

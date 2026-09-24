@@ -21,7 +21,9 @@ const emojis = [
   { char: '💰', top: '16%', left: '7%', speed: 0.18, rot: -6 },
   { char: '💸', top: '22%', left: '84%', speed: 0.24, rot: 8 },
   { char: '🪙', top: '74%', left: '9%', speed: 0.14, rot: 4 },
-  { char: '📈', top: '82%', left: '80%', speed: 0.2, rot: -10 }
+  { char: '📈', top: '82%', left: '80%', speed: 0.2, rot: -10 },
+  { char: '💵', top: '46%', left: '92%', speed: 0.22, rot: 12 },
+  { char: '🔥', top: '50%', left: '2%', speed: 0.26, rot: -8 }
 ]
 
 const doughnutLabels = ['Instagram', 'TikTok', 'YouTube']
